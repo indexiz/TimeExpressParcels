@@ -1,0 +1,102 @@
+<?php
+$account = $block->getAccount();
+$logo = $block->getViewFileUrl('TimeExpressParcels_TimeExpressParcels::images/logo-purple.png');
+?>
+<div class="timexpress_login_container" style="<?php if ($account) {?>display:none<?php }?>">
+    <h1>
+        <img src="<?= /* @noEscape */ $logo ?>" />
+    </h1>
+    <form action="<<?= /* @noEscape */ $block->getUrl('timeexpressparcels/account'); ?>" method="post">
+        <input name="form_key" type="hidden" value="<?= /* @noEscape */ $block->getFormKey();?>">
+        <div class="admin__fieldset-wrapper-content">
+            <div class="form-group admin__field-control">
+                <label for="tec_username"><?= /* @noEscape */__('Username')?></label>
+                <input style="width:300px" 
+                    type="text" 
+                    name="tes_username" 
+                    placeholder="<?= /* @noEscape */__('Username')?>"
+                    class="large-text admin__control-text"
+                />
+            </div>
+            <div class="form-group admin__field-control">
+                <label for="tec_password"><?= /* @noEscape */__('Password')?>&nbsp;</label>
+                <input style="width:300px"  
+                    type="password" 
+                    name="tes_password" 
+                    placeholder="<?= /* @noEscape */__('Password')?>" 
+                    class="large-text admin__control-text"
+                />
+            </div>
+            <div class="form-group admin__field-control">&nbsp;</div>
+            <div class="form-group">
+                <input style="background-color: #eb5202;
+border-color: #eb5202;color: #ffffff;text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);"
+type="submit" name="tes_login" value="<?= /* @noEscape */__('Log In')?>" class="action-default primary">
+                
+                <input style="<?php if (!$account) {?>display:none<?php }?>"
+type="button" id="cancelLogin" value="<?= /* @noEscape */__('Cancel')?>" class="action-default primary">
+            </div>
+        </div>
+    </form>
+</div>
+<?php
+if ($account) {
+    $client = json_decode($account, true);
+    ?>
+<div class="timexpress-client-detail">
+<h1><img src="<?= /* @noEscape */ $logo ?>"></h1>
+    <div class="client-info-table">
+        <table cellpadding="6" cellspacing="6" border="1" style="width: 80%">
+            <tr>
+                <th  style="height:25px">Name</th>
+                <td><?= /* @noEscape */  $client['name']; ?></td>
+            </tr>
+            <tr>
+                <th  style="height:25px">Address</th>
+                <td><?= /* @noEscape */  $client['address']; ?></td>
+            </tr>
+            <tr>
+                <th  style="height:25px">Account No</th>
+                <td><?= /* @noEscape */  $client['account_no']; ?></td>
+            </tr>
+            <tr>
+                <th  style="height:25px">Phone</th>
+                <td><?= /* @noEscape */  $client['phone']; ?></td>
+            </tr>
+            <tr>
+                <th  style="height:25px">Email</th>
+                <td><?= /* @noEscape */  $client['email']; ?></td>
+            </tr>
+        </table>
+        <div class="actions" style="margin-top:20px">
+            <div style="float: left;" class="settings_link">
+                <a href="<?= /* @noEscape */ $block->getUrl('adminhtml/system_config/edit/section/carriers'); ?>">
+                    <?= /* @noEscape */__('Go To Settings')?>
+                </a>
+            </div>
+
+            <div style="float: left;margin-left: 20px;margin-top: -6px;">
+                    <input style="background-color: #eb5202;
+border-color: #eb5202;color: #ffffff;text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.25);"
+type="button" id="ChangeAccount" value="<?= /* @noEscape */__('Change Account')?>" class="action-default primary">
+            </div>
+        </div>
+    </div>
+</div>
+    <?php
+}
+?>
+<script>
+require(['jquery'],function($){
+    $(document).ready(function(e) {
+        $('#ChangeAccount').click(function(){
+            $('.timexpress-client-detail').hide();
+            $('.timexpress_login_container').show();
+        });
+        $('#cancelLogin').click(function(){
+            $('.timexpress_login_container').hide();
+            $('.timexpress-client-detail').show();
+        });
+    });
+});
+</script>

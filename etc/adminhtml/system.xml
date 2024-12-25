@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © TIME EXPRESS PARCELS. All rights reserved.
+ * See LICENSE.txt for license details (http://opensource.org/licenses/osl-3.0.php).
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="carriers">
+            <group id="timeexpressparcels" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Time Express Parcels</label>
+                <field id="active" translate="label" type="select" sortOrder="0" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Enabled</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="type" translate="label note" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Automatic Process</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment>This will automatically process all orders opted for Time Express Parcels shipping by customer to Time Express Parcels</comment>
+                </field>
+                <field id="methods" translate="label note" type="multiselect" sortOrder="24" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Allowed Methods</label>
+                    <source_model>TimeExpressParcels\TimeExpressParcels\Model\Config\Source\Methods</source_model>
+                </field>
+                <field id="sallowspecific" translate="label" type="select" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Ship to Applicable Countries</label>
+                    <frontend_class>shipping-applicable-country</frontend_class>
+                    <source_model>Magento\Shipping\Model\Config\Source\Allspecificcountries</source_model>
+                </field>
+                <field id="specificcountry" translate="label" type="multiselect" sortOrder="55" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Ship to Specific Countries</label>
+                    <source_model>Magento\Directory\Model\Config\Source\Country</source_model>
+                    <can_be_empty>1</can_be_empty>
+                </field>
+                <field id="sort_order" translate="label" type="text" sortOrder="65" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Sort Order</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

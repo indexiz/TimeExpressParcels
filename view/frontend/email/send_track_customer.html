@@ -1,0 +1,33 @@
+<!--@subject {{trans "Time Express Parcels Tracking created from %store_name" store_name=$store.getFrontendName()}} @-->
+ 
+{{template config_path="design/email/header_template"}}
+<table style="width:100%">
+     <tr class="email-intro" >
+         <td style="text-align:center">
+         <img style="height:150px" src="{{var timeexpressparcels_logo}}" />
+         </td>
+     </tr>
+	 <tr><td>&nbsp;</td></tr>
+	 <tr class="email-intro">
+         <td style="text-align:center">
+		 {{trans "Hi, Your shipment from %store_name." store_name=$store.getFrontendName() is Ready}}
+         </td>
+        
+        
+     </tr>
+     <tr class="email-information">
+        <td style="text-align:center">
+        <strong>AWB Number:<strong> {{var awbno}}
+           
+        </td>
+    </tr>
+    <tr class="email-information">
+        <td style="text-align:center">
+            <a target="_blank" href="https://www.timexpress.ae/track/{{var awbno}}">Track Here</a>
+        </td>
+    </tr>
+ 
+	 
+ </table>
+ 
+{{template config_path="design/email/footer_template"}}

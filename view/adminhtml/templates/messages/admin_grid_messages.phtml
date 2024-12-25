@@ -1,0 +1,20 @@
+<?php
+
+use Magento\Backend\Block\Template;
+use Magento\Framework\Escaper;
+
+/**
+ * @var $block Template
+ * @var $escaper Escaper
+ */
+?>
+<div class="admin-tep-message-container">
+    <div class="admin-tep-message-header">
+        <strong>
+            <?= $escaper->escapeHtml($block->getData('heading')) ?>
+        </strong>
+    </div>
+    <div class="admin-tep-message-message">
+        <?= $escaper->escapeHtml($block->getData('message')) ?>
+    </div>
+</div>
