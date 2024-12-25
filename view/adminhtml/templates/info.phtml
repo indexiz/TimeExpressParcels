@@ -1,0 +1,19 @@
+<?php
+$response = $block->getResponseValues();
+if ($response) {
+    ?>
+
+    <br/><br/>
+    <span class="title" style="font-size: 16px; font-weight: bold;">
+        <?= /* @noEscape */ __('Time Express Parcels Information') ?>
+    </span>
+
+    <div >
+        <div style="padding: 10px; font-size: 16px;">
+        <?= /* @noEscape */  $response ?>
+        </div>
+    </div>
+    
+    <?php
+}
+?>

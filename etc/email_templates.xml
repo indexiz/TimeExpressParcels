@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="timeexpressparcels_track_template" label="Email Form" file="send_track.html" type="html" module="TimeExpressParcels_TimeExpressParcels" area="frontend"/>
+    <template id="customer_special_instructions_template" label="Email Form" file="send_track_customer.html" type="html" module="TimeExpressParcels_TimeExpressParcels" area="frontend"/>
+</config>

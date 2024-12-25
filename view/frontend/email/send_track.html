@@ -1,0 +1,42 @@
+<!--@subject {{trans "Time Express Parcels Tracking created from %store_name" store_name=$store.getFrontendName()}} @-->
+ 
+{{template config_path="design/email/header_template"}}
+<table style="width:100%">
+     <tr class="email-intro" >
+         <td style="text-align:center">
+         <img style="height:150px" src="{{var timeexpressparcels_logo}}" />
+         </td>
+     </tr>
+	 <tr><td>&nbsp;</td></tr>
+	 <tr class="email-intro">
+         <td style="text-align:center">
+		 {{trans "Hi, there is new order from %store_name." store_name=$store.getFrontendName()}}
+         </td>
+     </tr>
+	 <tr><td>&nbsp;</td></tr>
+	 <tr class="email-summary">
+         <td style="text-align:center">
+         <a href="http:/timeexpress.dnsalias.com:880/A6/R.aspx?A={{var awbno}}" target="_blank">Download AWB</a>
+         </td>
+     </tr>
+	 <tr><td>&nbsp;</td></tr>
+	 <tr class="email-information">
+         <td style="text-align:center">
+         <strong>AWB Number:<strong> {{var awbno}}
+         </td>
+     </tr>
+	 <tr><td>&nbsp;</td></tr>
+	 <tr class="email-information">
+         <td style="text-align:center">
+         <strong>Account Name:<strong> {{var account_name}}
+         </td>
+     </tr>
+	 <tr><td>&nbsp;</td></tr>
+	 <tr class="email-information">
+         <td style="text-align:center">
+         <strong>Account Number:<strong> {{var account_no}}
+         </td>
+     </tr>
+ </table>
+ 
+{{template config_path="design/email/footer_template"}}

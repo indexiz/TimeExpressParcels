@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="TimeExpressParcels_TimeExpressParcels::Timeexpress" title="Time Express Parcels" module="TimeExpressParcels_TimeExpressParcels"
+             sortOrder="50" parent="Magento_Sales::sales" resource="TimeExpressParcels_TimeExpressParcels::Timeexpress"
+        />
+        <add id="TimeExpressParcels_TimeExpressParcels::account" title="Account"
+             module="TimeExpressParcels_TimeExpressParcels" sortOrder="0" parent="TimeExpressParcels_TimeExpressParcels::Timeexpress"
+             action="timeexpressparcels/account" resource="TimeExpressParcels_TimeExpressParcels::account"
+        />
+        <add id="TimeExpressParcels_TimeExpressParcels::order" title="Orders"
+             module="TimeExpressParcels_TimeExpressParcels" sortOrder="2" parent="TimeExpressParcels_TimeExpressParcels::Timeexpress"
+             action="timeexpressparcels/index" resource="TimeExpressParcels_TimeExpressParcels::order"
+        />
+        <add
+            id="TimeExpressParcels_TimeExpressParcels::config"
+            title="Settings"
+            module="TimeExpressParcels_TimeExpressParcels"
+            sortOrder="130"
+            resource="TimeExpressParcels_TimeExpressParcels::config"
+            parent="TimeExpressParcels_TimeExpressParcels::Timeexpress"
+            action="adminhtml/system_config/edit/section/carriers"
+        />
+    </menu>
+</config>
